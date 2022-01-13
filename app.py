@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-from utils import get_post_pk, get_comment, get_post, get_comments_posts, post_search, search_tag, user_feed_dict, tag
+from utils import get_post_pk, get_comment, get_post, get_comments_posts, post_search, count_views, search_tag, user_feed_dict, tag
 
 app = Flask(__name__)
 
@@ -15,6 +15,7 @@ def posts(pk):
     post = get_post_pk(pk)
     comment = get_comment(pk)
     count_comments = len(comment)
+    count_views(pk)
     return render_template('post.html', post=post, comment=comment, count_comments=count_comments)
 
 @app.route('/bookmarks',)
