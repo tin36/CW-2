@@ -31,8 +31,8 @@
       <p class="search__results">Найдено постов: {{ count_posts }}</p>
     </div>
     <section class="items">
+      {% for i in posts %}
       <div class="items__item item">
-        {% for i in posts %}
         <div class="item__top">
           <a href="/users/{{ i.poster_name }}" class="item__head">
             <div class="item__ava-wrap">
@@ -52,6 +52,8 @@
           <div class="item__counter">
             <img src="/static/img/eye.png" alt="" class="item__counter-icon" width="26">
             <span class="item__counter-text">{{i.views_count}}</span>
+            <img src="/static/img/like.png" alt="" class="item__counter-icon" width="26">
+            <span class="item__counter-text">{{ likes }}</span>
           </div>
         </div>
         <div class="item__post-bottom">
@@ -60,9 +62,9 @@
             <img src="/static/img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
           </button>
         </div>
-      </div>
-      <hr>
-      {% endfor %}
+      </div>{% endfor %}
+
+
     </section>
   </main>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">

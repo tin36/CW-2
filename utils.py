@@ -53,7 +53,7 @@ def post_search(word):
     post_search = []
     posts = get_post()
     for i in posts:
-        if word in i['content']:
+        if word in i['content'].lower():
             post_search.append(i)
     return post_search
 
@@ -98,3 +98,10 @@ def count_views(pk):
             if i['pk'] == pk:
                 i['views_count'] += 1
         json.dump(posts, f, indent=2, ensure_ascii=False)
+
+
+# def add_bookmarks():
+#     '''Добавляем в закладки'''
+#     with open('data/bookmarks.json', 'r+', encoding='utf-8') as f:
+#         bookmarks = json.load(f)
+#     return bookmarks
