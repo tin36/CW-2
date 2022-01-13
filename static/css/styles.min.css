@@ -4,3 +4,12 @@
 
 .item__search {text-align: right;
 text-decoration: none;}
+
+h1 {
+ font-family: impact;}
+
+.my_tag_header {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+   }

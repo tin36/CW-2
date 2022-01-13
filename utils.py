@@ -20,6 +20,7 @@ def get_post_pk(pk):
     posts = get_post()
     for i in posts:
         if i['pk'] == pk:
+            i['content'] = search_tag(i['content'])
             return i
     return None
 
@@ -48,12 +49,41 @@ def get_comments_posts():
 
 
 def post_search(word):
-
+    '''поиск постов по словам'''
     post_search = []
     posts = get_post()
     for i in posts:
         if word in i['content']:
             post_search.append(i)
-
-
     return post_search
+
+
+def search_tag(word):
+    '''поиск по тегам'''
+    words = word.split(" ")
+    for index, i in enumerate(words):
+        if i.startswith("#"):
+            tag = i[1:]
+            link = f"<a href='/tag/{tag}'>{i}</a>"
+            words[index] = link
+    return ' '.join(words)
+
+def tag(word):
+    '''поиск по тегам'''
+    words = word.split(" ")
+    for index, i in enumerate(words):
+        if i.startswith("#"):
+
+            return i
+
+def user_feed_dict(user):
+    '''поиск постов по пользователю'''
+    posts = get_post()
+    user_feed = []
+    for i in posts:
+        if i['poster_name'] == user:
+            user_feed.append(i)
+    return user_feed
+
+
+
