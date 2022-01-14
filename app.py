@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import json
 
 from utils import get_post_pk, get_comment, get_post, get_comments_posts, post_search, count_views, user_feed_dict, tag
 
@@ -18,15 +19,16 @@ def posts(pk):
     comment = get_comment(pk)
     count_comments = len(comment)
     count_views(pk)
+
     likes = post['likes_count']
 
 
     return render_template('post.html', post=post, comment=comment, count_comments=count_comments, likes=likes)
 
 
-@app.route('/bookmarks', )
-def bookmarks():
-    return render_template('bookmarks.html')
+# @app.route('/bookmarks', )
+# def bookmarks():
+#     return render_template('bookmarks.html')
 
 
 @app.route('/users/<user>', )
@@ -68,5 +70,9 @@ def get_tag(tags):
                                    comments_count=comments_count)
 
 
+@app.route('/bookmarks/')
+def bookmarks():
+
+    return render_template('bookmarks.html', posts=posts)
 
 app.run(debug=True, port=8001)

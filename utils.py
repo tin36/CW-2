@@ -100,8 +100,17 @@ def count_views(pk):
         json.dump(posts, f, indent=2, ensure_ascii=False)
 
 
-# def add_bookmarks():
-#     '''Добавляем в закладки'''
+# def bookmarks():
+#     '''Читаем закладки'''
 #     with open('data/bookmarks.json', 'r+', encoding='utf-8') as f:
 #         bookmarks = json.load(f)
+#
+#     return bookmarks
+#
+# def add_bookmarks():
+#     with open('data/bookmarks.json', 'r+', encoding='utf-8') as f:
+#         bookmarks = json.load(f)
+#
+#
+#         json.dump(bookmarks, f, indent=2, ensure_ascii=False)
 #     return bookmarks
