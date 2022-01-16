@@ -108,6 +108,7 @@ def count_views(pk):
 #     return bookmarks
 #
 # def add_bookmarks():
+        '''Пытаемя записать закладки'''
 #     with open('data/bookmarks.json', 'r+', encoding='utf-8') as f:
 #         bookmarks = json.load(f)
 #
